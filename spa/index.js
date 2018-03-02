@@ -26,17 +26,50 @@ app.config(function ($routeProvider) {
   })
 })
 
-app.controller('mainController', ['$location', '$log', '$scope', function ($location, $log, $scope) {
-  $scope.name = 'Learn Angular'
-  $log.log($location.path())
+/**
+ * nameService
+ */
+app.service('nameService', function () {
+  var self = this
+
+  this.name = 'John Singleton'
+
+  this.nameLength = function () {
+    return self.name.length
+  }
+})
+
+/**
+ * mainController
+ */
+app.controller('mainController', ['$location', '$log', '$scope', 'nameService', function ($location, $log, $scope, nameService) {
+  $scope.blurb = 'Learn Angular'
+
+  $scope.name = nameService.name
+
+  $scope.$watch('name', function () {
+    nameService.name = $scope.name
+  })
 }])
 
+/**
+ * secondController
+ */
 app.controller('secondController', ['$log', '$scope', function ($log, $scope) {
   $log.log('Second!!')
 }])
 
-app.controller('thirdController', ['$log', '$routeParams', '$scope', function ($log, $routeParams, $scope) {
-  $scope.name = 'Third page is wild.'
+/**
+ * thirdController
+ */
+app.controller('thirdController', ['$log', '$routeParams', '$scope', 'nameService', function ($log, $routeParams, $scope, nameService) {
+  $scope.blurb = 'Third page is wild.'
 
   $scope.num = $routeParams.num || 1
+
+  $scope.name = nameService.name
+
+  $scope.$watch('name', function () {
+    nameService.name = $scope.name
+  })
 }])
