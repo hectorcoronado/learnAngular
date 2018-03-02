@@ -5,3 +5,5 @@
 ## dependency injection:
 
 rather than creating an object inside a function, you pass it to the function.
+
+## spa directory has example of ngRoute & $routeProvider

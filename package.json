@@ -1,0 +1,22 @@
+{
+  "name": "learnangular1",
+  "version": "1.0.0",
+  "description": "'learn angularjs'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hectorcoronado/learnAngular.git"
+  },
+  "author": "Hector Coronado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hectorcoronado/learnAngular/issues"
+  },
+  "homepage": "https://github.com/hectorcoronado/learnAngular#readme",
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  }
+}
